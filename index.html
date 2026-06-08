@@ -8,8 +8,9 @@
     :root{
       --bg:#f4f7fc; 
       --card:#ffffff; 
-      --text:#111111; 
-      --text-muted:#333333; 
+      --text:#111111; /* Основной текст — четкий черный */
+      --text-dark:#000000; /* Максимально черный */
+      --text-muted:#222222; /* Второстепенный текст — темно-серый, почти черный */
       --line:#dde6f0;
       --primary:#2457d6; 
       --primary2:#4f86ff; 
@@ -31,44 +32,47 @@
     .hero{background:linear-gradient(135deg,#1f4ec9 0%, #3a76ff 100%);color:#fff;border-radius:28px;padding:28px 26px;box-shadow:var(--shadow);}
     .eyebrow{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);font-size:13px;font-weight:700;letter-spacing:.02em;margin-bottom:14px;}
     h1{margin:0;font-size:clamp(28px,4vw,42px);line-height:1.08;color:#fff;}
-    .hero p{margin:14px 0 0;max-width:860px;font-size:17px;opacity:.98;}
+    .hero p{margin:14px 0 0;max-width:860px;font-size:17px;opacity:.98;color:#fff;}
     .nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
     .btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:14px;font-weight:700;transition:.2s ease;border:1px solid transparent;cursor:pointer;}
     .btn.primary{background:#fff;color:#1f4ec9;}
     .btn.secondary{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.20);}
     .section{margin-top:18px;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid #edf2f8;padding:24px 22px;}
-    .section h2{margin:0 0 10px;font-size:26px;line-height:1.15;color:var(--text);}
-    .lead{margin:0 0 14px;color:var(--text-muted);font-size:16px;}
+    .section h2{margin:0 0 10px;font-size:26px;line-height:1.15;color:#000000;} /* Черный */
+    .lead{margin:0 0 14px;color:#222222;font-size:16px;} /* Темный */
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
     .card{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fff;}
-    .card h3{margin:0 0 8px;font-size:19px;color:var(--text);}
+    .card h3{margin:0 0 8px;font-size:19px;color:#000000;} /* Черный */
     .field, textarea, input[type="text"]{
       width:100%; border:1px solid var(--line); border-radius:14px; padding:12px 14px;
-      font:inherit; color:var(--text); background:#fff;
+      font:inherit; color:#000000; background:#fff;
+    }
+    .field::placeholder, textarea::placeholder, input::placeholder {
+      color:#444444; /* Темные подсказки, а не серые */
+      opacity: 0.7;
     }
     textarea{min-height:120px; resize:vertical;}
     .small{min-height:90px;}
     .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
     .sum-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;}
-    .sum-card strong{display:block;font-size:14px;color:var(--text-muted);}
+    .sum-card strong{display:block;font-size:14px;color:#222222;} /* Темный */
     .big{font-size:34px;font-weight:800;color:var(--primary);line-height:1;margin-top:8px;}
     .gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
     .ph{
       border:2px dashed #cfdcf0; border-radius:18px; min-height:220px; display:flex;
-      align-items:center; justify-content:center; color:var(--text-muted); text-align:center; padding:20px;
+      align-items:center; justify-content:center; color:#222222; text-align:center; padding:20px;
       background:#fbfcfe;
     }
-    .note{border-radius:18px;padding:16px 18px;border:1px solid #d6ebdf;background:#f1fcf6; color: var(--text);}
+    .note{border-radius:18px;padding:16px 18px;border:1px solid #d6ebdf;background:#f1fcf6; color:#111111;}
     .note strong{color:var(--green);}
-    .footer{margin-top:18px;text-align:center;color:var(--text-muted);font-size:14px;}
-    /* Стили для изображений */
+    .footer{margin-top:18px;text-align:center;color:#222222;font-size:14px;}
     .img-container {
       margin-bottom: 20px;
     }
     .img-container p {
       margin-bottom: 8px;
       font-weight: 600;
-      color: var(--text);
+      color:#000000;
     }
     .report-img {
       width: 100%;
@@ -76,15 +80,6 @@
       border: 1px solid var(--line);
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       background-color: #f8f9fa;
-    }
-    .img-placeholder {
-      background: #eef2f7;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: monospace;
-      font-size: 14px;
-      color: #556b82;
     }
     @media (max-width:900px){.grid,.summary,.gallery{grid-template-columns:1fr;}}
     @media print{
@@ -133,7 +128,7 @@
         <div class="sum-card"><strong>Набрано баллов</strong><div class="big" id="sum">90</div></div>
         <div class="sum-card"><strong>Максимум</strong><div class="big" id="max">92</div></div>
         <div class="sum-card"><strong>Процент</strong><div class="big" id="percent">98%</div></div>
-        <div class="sum-card"><strong>Результат</strong><div id="interp" style="margin-top:8px; font-weight:700;">Рабочее место организовано грамотно и соответствует задачам</div></div>
+        <div class="sum-card"><strong>Результат</strong><div id="interp" style="margin-top:8px; font-weight:700; color:#111111;">—</div></div>
       </div>
     </section>
 
@@ -192,13 +187,13 @@
       <h2>5. Визуальные материалы</h2>
       <div class="img-container">
         <p>📸 Фото 1 — Рабочее место до улучшений:</p>
-        <img class="foto1.jpg" src="https://share.google/UFMDyP66edqj91C6p" alt="Рабочее место до улучшений" style="width:100%;">
-        <div class="note" style="margin-top:8px; padding:8px 12px;">💡 <strong>Совет:</strong> Чтобы фото отображались, сохраните картинки в ту же папку, что и HTML файл, и пропишите их название (например, <code>foto1.jpg</code>) вместо длинной ссылки.</div>
+        <img class="report-img" src="https://via.placeholder.com/800x500/cccccc/222222?text=ВСТАВЬТЕ+ССЫЛКУ+НА+ФОТО+ДО" alt="Рабочее место до улучшений" style="width:100%;">
+        <div class="note" style="margin-top:8px; padding:8px 12px;">💡 <strong>Как добавить свои фото:</strong> сохраните картинки в ту же папку, что и HTML файл (например, <code>foto1.jpg</code> и <code>foto2.jpg</code>), и пропишите в атрибуте <code>src="foto1.jpg"</code> вместо длинной ссылки.</div>
       </div>
 
       <div class="img-container">
         <p>📸 Фото 2 — Рабочее место после улучшений:</p>
-        <img class="foto2.jpg" src="https://share.google/vxnMJX61WLxoD79EY" alt="Рабочее место после улучшений" style="width:100%;">
+        <img class="report-img" src="https://via.placeholder.com/800x500/cccccc/222222?text=ВСТАВЬТЕ+ССЫЛКУ+НА+ФОТО+ПОСЛЕ" alt="Рабочее место после улучшений" style="width:100%;">
       </div>
     </section>
 
