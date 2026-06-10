@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Шаблон отчёта студента</title>
   <style>
-    /* ЖЁСТКИЕ ПРАВИЛА ДЛЯ ЧЁРНОГО ЖИРНОГО ШРИФТА */
     * {
       color: #000000 !important;
-      font-weight: 600 !important; /* делаем жирнее стандартного */
+      font-weight: 600 !important; 
     }
-    /* Но для фона и декоративных элементов цвет не трогаем */
     body, .hero, .section, .card, .note, .sum-card, .img-container {
       background-color: initial; /* сбрасываем принудительный цвет фона */
     }
@@ -27,7 +25,6 @@
       padding: 28px 26px;
       box-shadow: 0 14px 36px rgba(24,33,47,.10);
     }
-    /* Текст в шапке оставляем белым, но жирным */
     .hero * {
       color: #ffffff !important;
       font-weight: 600 !important;
@@ -85,7 +82,6 @@
       font: inherit;
       background: #fff;
     }
-    /* Placeholder тоже делаем чёрным и жирным */
     ::placeholder {
       color: #000000 !important;
       font-weight: 600 !important;
@@ -166,7 +162,8 @@
       <div class="sum-card"><strong>Набрано баллов</strong><div class="big" id="sum">90</div></div>
       <div class="sum-card"><strong>Максимум</strong><div class="big" id="max">92</div></div>
       <div class="sum-card"><strong>Процент</strong><div class="big" id="percent">98%</div></div>
-      <div class="sum-card"><strong>Результат</strong><div id="interp" style="margin-top:8px; font-weight:700;">—</div></div>
+      <div class="sum-card"><strong>Результат</strong><div id="interp" style="margin-top:8px; font-weight:700;">Рабочее место
+организовано грамотно и соответствует задачам</div></div>
     </div>
   </section>
 
